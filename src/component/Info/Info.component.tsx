@@ -18,14 +18,13 @@ interface Props{
 
 
 class Info extends React.Component<Props>{
-
 	renderTemplate = () => {
 		const bgColor: string[] = ["red","green","purple"];
 		const photo: string[] = [postitfPhoto,recoveredPhoto,deathPhoto];
 		if(this.props.globalData){
-			const { globalData } = this.props.globalData
-			if(!instanceOfA(globalData)){
-				return globalData.map((_data: IglobalData,index) => {
+			const { dataSummary } = this.props.globalData
+			if(!instanceOfA(dataSummary)){
+				return dataSummary.map((_data: IglobalData,index) => {
 					return(
 						<Col sm={12} md={6} lg={6} xl={3}>
 							<InfoCard key={index} {..._data} bgColor={bgColor[index]} photo={photo[index]} />
@@ -41,16 +40,21 @@ class Info extends React.Component<Props>{
 		return(
 			<Row>
 				{this.renderTemplate()}
-				
+				<Col sm={12} md={6} lg={6} xl={3}>
+				{
+					lokalData && "sembuh" in lokalData.locaLData ?
+					<InfoCard {...lokalData.locaLData} />:""
+				}
+				</Col>
 			</Row>
 		)
 	}
 }
 
 
-const mapsStateToProps = ({ globalData, lokalData }:IRootStore) => ({
+const mapsStateToProps = ({ globalData, lokalData }:IRootStore):Props => ({
 	globalData,
-	lokalData
+	lokalData,
 })
 
 export default connect(mapsStateToProps)(Info);

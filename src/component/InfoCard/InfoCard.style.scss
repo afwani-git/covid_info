@@ -1,3 +1,6 @@
+@import "../../variable.scss";
+
+
 .info{
 	border-radius: 10px;
 	box-shadow: $shadow2;
@@ -15,7 +18,7 @@
 			}
 		}
 	}
-A
+
 	&__right{
 		margin-left: auto;
 		align-self: center;

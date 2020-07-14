@@ -3,7 +3,8 @@ import {
 } from "./globalData.types";
 
 import {
-  IglobalData
+  IglobalData,
+  IdataDialy
 } from "./globalData.interface";
 
 export const fetchStart = () => ({
@@ -17,5 +18,19 @@ export const fetchDataSuccess = (data: IglobalData[]) => ({
 
 export const fetchDataError = (data: Error) => ({
   type:Types.FETCH_ERROR,
+  payload:data
+})
+
+export const fetchStartD = () => ({
+  type:Types.FETCH_START_D
+})
+
+export const fetchDataSuccessD = (data: IdataDialy[]) => ({
+  type:Types.FETCH_SUCCESS_D,
+  payload:data
+})
+
+export const fetchDataErrorD = (data: Error) => ({
+  type:Types.FETCH_ERROR_D,
   payload:data
 })
