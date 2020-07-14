@@ -1,0 +1,25 @@
+@import "../../variable.scss";
+
+.header{
+	background: white;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	border-bottom: 1px solid #eaedf1;
+	box-shadow:$shadow1;
+	&__brand{
+		font-size: 2rem;
+	}
+
+	&__nav{
+		font-weight: bold;
+		.nav-item{
+			.nav-link{
+				text-decoration: none;
+				color:black!important;
+			}
+			&--bd{
+				border-left: .8px solid rgba(000,000,000,.2);
+			}
+		}
+	}
+}
