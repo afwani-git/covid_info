@@ -7,12 +7,15 @@ import Stat from "./component/Stat/Stat.component";
 import LocalList from "./component/LocalList/LocalList.component";
 import Container from "react-bootstrap/Container";
 import { fetchStart,fetchStartD }  from "./redux/globalData/globalData.actions";
+import { localDataFetchStart, localDataByProvFetchStart } from "./redux/lokalData/lokalData.actions";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 
 interface Props{
   fetchData?:Function,
-  fetchDataDaily?: Function
+  fetchDataDaily?: Function,
+  fetchDataLocal?: Function,
+  fetchDataLocalProv?:Function
 }
 
 class App extends React.Component<Props>{
@@ -20,6 +23,8 @@ class App extends React.Component<Props>{
   componentDidMount(){
     this.props.fetchData!();
     this.props.fetchDataDaily!();
+    this.props.fetchDataLocal!();
+    this.props.fetchDataLocalProv!();
   }
 
   render(){
@@ -47,9 +52,11 @@ class App extends React.Component<Props>{
 }
 
 
-const mapsDispatchToProps = (dispatch: Dispatch) => ({
+const mapsDispatchToProps = (dispatch: Dispatch):Props => ({
 	fetchData:() => dispatch(fetchStart()),
-  fetchDataDaily:() => dispatch(fetchStartD())
+  fetchDataDaily:() => dispatch(fetchStartD()),
+  fetchDataLocal:() => dispatch(localDataFetchStart()),
+  fetchDataLocalProv:() => dispatch(localDataByProvFetchStart())
 })
 
 export default connect(null,mapsDispatchToProps)(App);

@@ -53,8 +53,6 @@ class Chart extends React.Component<Props,State>{
 
 
   static getDerivedStateFromProps(nextProps : Props, prevState: Props){
-    console.log(nextProps);
-    console.log(prevState);
     return {
       data:{
         labels:nextProps.data.reportDate,

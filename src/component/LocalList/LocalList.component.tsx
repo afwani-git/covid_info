@@ -1,10 +1,35 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
+import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
+import { selectDataProv } from "../../redux/lokalData/lokalData.selector";
+import { ILocalDataByProv } from "../../redux/lokalData/lokalData.interface";
+import { IRootStore } from "../../redux/root.interface";
 
-class LocalList extends React.Component{
+interface Props{
+  data:ILocalDataByProv[]
+}
+
+class LocalList extends React.Component<Props>{
+
+  renderTemplate = () => {
+    const {  data }  = this.props;
+    return data.map((_dat:ILocalDataByProv,index) =>{
+      return(
+        <tr key={index}>
+          <th scope="row">{index}</th>
+          <td>{_dat.attributes.Provinsi}</td>
+          <td>{_dat.attributes.Kasus_Posi}</td>
+          <td>{_dat.attributes.Kasus_Semb}</td>
+          <td>{_dat.attributes.Kasus_Meni}</td>
+        </tr>
+      )
+    })
+  }
+
   render(){
+    console.log(this.props.data)
     return(
 				<Card>
 					<Card.Header className="bg-white">
@@ -24,35 +49,8 @@ class LocalList extends React.Component{
 								</tr>
 							</thead>
 							<tbody>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Jatim</td>
-							      <td>900</td>
-							      <td>999</td>
-							      <td>9</td>
-							    </tr>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Jatim</td>
-							      <td>900</td>
-							      <td>999</td>
-							      <td>9</td>
-							    </tr>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Jatim</td>
-							      <td>900</td>
-							      <td>999</td>
-							      <td>9</td>
-							    </tr>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Jatim</td>
-							      <td>900</td>
-							      <td>999</td>
-							      <td>9</td>
-							    </tr>
-                </tbody>
+							      {this.renderTemplate()}
+              </tbody>
 						</Table>
 					</Card.Body>
 				</Card>
@@ -60,4 +58,8 @@ class LocalList extends React.Component{
   }
 }
 
-export default connect()(LocalList);
+const mapStateToProps = createStructuredSelector<IRootStore,Props>({
+  data:state => selectDataProv(state.lokalData)
+})
+
+export default connect(mapStateToProps)(LocalList);

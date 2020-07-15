@@ -13,7 +13,7 @@ export const localDataFetchSuccess = (data:ILocalData):IAction => ({
 });
 
 export const localDataFetchError = (err: Error):IAction => ({
-  type:Types.FETCH_START_TOTAL,
+  type:Types.FETCH_ERROR_TOTAL,
   payload:err
 });
 
@@ -24,11 +24,11 @@ export const localDataByProvFetchStart = ():IAction => ({
 });
 
 export const localDataByProvFetchSuccess = (data: ILocalDataByProv[]):IAction => ({
-  type:Types.FETCH_START_PROV,
+  type:Types.FETCH_SUCCESS_PROV,
   payload:data
 });
 
 export const localDataByProvFetchError = (err: Error):IAction => ({
-  type:Types.FETCH_START_PROV,
+  type:Types.FETCH_ERROR_PROV,
   payload:err
 });
