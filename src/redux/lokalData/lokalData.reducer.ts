@@ -3,12 +3,12 @@ import { IAction } from "../root.interface";
 import { Types } from "./lokalData.types";
 const INTIAL_STATE: ILocalDataState = {
   localDataByProv:[],
-  locaLData:{
+  locaLData:[{
     name:"",
     positif:0,
     sembuh:0,
     meninggal:0
-  },
+  }],
   isLoad:false
 }
 

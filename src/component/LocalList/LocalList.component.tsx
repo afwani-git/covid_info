@@ -29,7 +29,6 @@ class LocalList extends React.Component<Props>{
   }
 
   render(){
-    console.log(this.props.data)
     return(
 				<Card>
 					<Card.Header className="bg-white">
@@ -38,20 +37,22 @@ class LocalList extends React.Component<Props>{
             </h4>
 					</Card.Header>
 					<Card.Body>
-						<Table className="table-bordered">
-							<thead>
-								<tr>
-									<th scope="col">No</th>
-								    <th scope="col">Provinsi</th>
-								    <th scope="col">Positif</th>
-								    <th scope="col">Sembuh</th>
-								    <th scope="col">Meninggal</th>
-								</tr>
-							</thead>
-							<tbody>
-							      {this.renderTemplate()}
-              </tbody>
-						</Table>
+            <div className="table-responsive"  style={{height:"500px"}}>
+  						<Table className="table-bordered">
+  							<thead>
+  								<tr>
+  									<th scope="col">No</th>
+  								    <th scope="col">Provinsi</th>
+  								    <th scope="col">Positif</th>
+  								    <th scope="col">Sembuh</th>
+  								    <th scope="col">Meninggal</th>
+  								</tr>
+  							</thead>
+  							<tbody>
+  							      {this.renderTemplate()}
+                </tbody>
+  						</Table>
+            </div>
 					</Card.Body>
 				</Card>
     )

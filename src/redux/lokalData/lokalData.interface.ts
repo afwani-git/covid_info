@@ -19,7 +19,7 @@ export interface ILocalData{
 
 export interface ILocalDataState{
 	localDataByProv:ILocalDataByProv[],
-	locaLData:ILocalData,
+	locaLData:ILocalData[],
 	isLoad:boolean,
 	error?:Error
 }

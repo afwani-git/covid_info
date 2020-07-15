@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import { IglobalData } from "../../redux/globalData/globalData.interface";
 import { ILocalData } from "../../redux/lokalData/lokalData.interface";
-import inaFlag from "../../asset/indo.png";
 import "./InfoCard.style.scss";
 
 interface costumeProps extends IglobalData{
@@ -11,7 +10,7 @@ interface costumeProps extends IglobalData{
   photo?:string;
 }
 
-type Props = costumeProps | ILocalData;
+type Props = costumeProps | [ILocalData];
 
 const InfoCard:React.FC<Props> = (props: Props) => {
   return(
@@ -31,17 +30,7 @@ const InfoCard:React.FC<Props> = (props: Props) => {
             </Card.Body>
         </Card>
       :
-      <Card className="info info--orange">
-          <Card.Body className="d-flex justify-content-around align-content-center card-body info__body">
-              <div className="info__left">
-                <h3 className="mb-0  info__value">{props.name}</h3>
-                <p className="mb-0  info__text--lokal">{props.positif} POSITIF, {props.sembuh} SEMBUH, {props.meninggal} MENINGGAL</p>
-              </div>
-              <div className="info__right">
-                <Image src={inaFlag} className="info__photo"/>
-              </div>
-          </Card.Body>
-      </Card>
+      "load"
     }
     </React.Fragment>
   )
