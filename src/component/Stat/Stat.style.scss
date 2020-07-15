@@ -1,3 +1,7 @@
+@import "../../variable.scss";
+
 .stat{
   border-radius: 20px;
+  border: none!important;
+  box-shadow: $shadow1;
 }

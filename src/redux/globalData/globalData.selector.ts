@@ -18,6 +18,6 @@ export const mappingData = createSelector(
   (dataDaily) => ({
       totalConfirmedXChina:dataDaily.map(_dat => _dat.otherLocations),
       totalConfirmedInChina:dataDaily.map(_dat => _dat.mainlandChina),
-      totalRecovered:dataDaily.map(_dat => _dat.deaths.total),
+      totalDeath:dataDaily.map(_dat => _dat.deaths.total),
       reportDate:dataDaily.map(_dat => _dat.reportDate)})
 )

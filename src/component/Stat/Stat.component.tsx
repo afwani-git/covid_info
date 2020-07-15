@@ -37,7 +37,6 @@ class Stat extends React.Component<Props>{
 								<h4>Statistik Kasus Coronavirus</h4>
 							</Card.Header>
 							<Card.Body className="stat__body">
-								<canvas id="line-chart" width="800" height="450"></canvas>
                 <Chart/>
 							</Card.Body>
 							<Card.Footer className="card-footer bg-white stat__footer">
