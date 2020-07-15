@@ -4,9 +4,11 @@ import {
   fetchDataSuccess,
   fetchDataError,
   fetchDataSuccessD,
-  fetchDataErrorD
+  fetchDataErrorD,
+  countryListFetchDataSuccess,
+  countryListFetchDataError
 } from "./globalData.actions";
-import { fetchDataGlobalApi, fetchDataGlobalDailyApi } from "../../module/client";
+import { fetchDataGlobalApi, fetchDataGlobalDailyApi, fetchListCountryApi } from "../../module/client";
 
 export function*  fetchData(){
     const { result, error } = yield call(fetchDataGlobalApi);
@@ -26,6 +28,16 @@ export function* fetchDataDaily(){
   }
 }
 
+
+export function* fetchListCountry(){
+  const { error,data } = yield call(fetchListCountryApi);
+  if(error){
+    yield put(countryListFetchDataError(error));
+  }else{
+    yield put(countryListFetchDataSuccess(data));
+  }
+}
+
 export function* onFetchData(){
     yield takeEvery(Types.FETCH_START,fetchData);
 }
@@ -34,10 +46,14 @@ export function* onFetchDataDaily(){
   yield takeEvery(Types.FETCH_START_D,fetchDataDaily)
 }
 
+export function* onFetchCountryList(){
+  yield takeEvery(Types.FETCH_COUNTRYLIST_START,fetchListCountry);
+}
 
 export function* globalDataSagas(){
   yield all([
     call(onFetchData),
-    call(onFetchDataDaily)
+    call(onFetchDataDaily),
+    call(onFetchCountryList)
   ]);
 }

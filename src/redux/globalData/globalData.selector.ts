@@ -13,6 +13,11 @@ export const selectDataDaily = createSelector(
   (selectGlobalState) => selectGlobalState.dataDaily
 )
 
+export const selectCountryList = createSelector(
+  [selectGlobalState],
+  (selectGlobalState) => selectGlobalState.listCounty
+)
+
 export const mappingData = createSelector(
   [selectDataDaily],
   (dataDaily) => ({

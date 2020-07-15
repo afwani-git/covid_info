@@ -18,7 +18,7 @@ class LocalList extends React.Component<Props>{
     return data.map((_dat:ILocalDataByProv,index) =>{
       return(
         <tr key={index}>
-          <th scope="row">{index}</th>
+          <th scope="row">{index+1}</th>
           <td>{_dat.attributes.Provinsi}</td>
           <td>{_dat.attributes.Kasus_Posi}</td>
           <td>{_dat.attributes.Kasus_Semb}</td>

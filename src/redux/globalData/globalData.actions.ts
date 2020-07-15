@@ -34,3 +34,17 @@ export const fetchDataErrorD = (data: Error) => ({
   type:Types.FETCH_ERROR_D,
   payload:data
 })
+
+export const countryListFetchStart = () => ({
+  type:Types.FETCH_COUNTRYLIST_START
+})
+
+export const countryListFetchDataSuccess = (data: IdataDialy[]) => ({
+  type:Types.FETCH_COUNTRYLIST_SUCCESS,
+  payload:data
+})
+
+export const countryListFetchDataError = (data: Error) => ({
+  type:Types.FETCH_COUNTRYLIST_ERROR,
+  payload:data
+})

@@ -6,6 +6,7 @@ import { Types } from "./globalData.types";
 const INITIAL_STATE: IGlobalDataState = {
     dataSummary:[],
     dataDaily:[],
+    listCounty:[],
     isLoad:false,
 }
 
@@ -13,6 +14,7 @@ export function globalDataReducer(state = INITIAL_STATE,action: IAction):IGlobal
   switch (action.type) {
     case Types.FETCH_START:
     case Types.FETCH_START_D:
+    case Types.FETCH_COUNTRYLIST_START:
       return{
         ...state,
         isLoad:true
@@ -29,6 +31,13 @@ export function globalDataReducer(state = INITIAL_STATE,action: IAction):IGlobal
         isLoad:false,
         dataDaily:action.payload
       }
+    case Types.FETCH_COUNTRYLIST_SUCCESS:
+      return{
+        ...state,
+        isLoad:false,
+        listCounty:action.payload
+      }
+    case Types.FETCH_COUNTRYLIST_ERROR:
     case Types.FETCH_ERROR_D:
     case Types.FETCH_ERROR:
       return{

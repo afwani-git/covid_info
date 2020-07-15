@@ -3,6 +3,20 @@ export interface IglobalData{
   value:number
 }
 
+export interface IglobalDataList{
+		attributes: {
+  		OBJECTID: number,
+  		Country_Region: string,
+  		Last_Update: Date,
+  		Lat: number,
+  		Long_: number,
+  		Confirmed: number,
+  		Deaths: number,
+  		Recovered: number,
+  		Active: number
+		}
+}
+
 export interface IdataDialy{
       totalConfirmed: number,
       mainlandChina: number,
@@ -37,6 +51,7 @@ export interface IdataDialy{
 export interface IGlobalDataState{
   dataSummary:IglobalData[],
   dataDaily:IdataDialy[],
+  listCounty:IglobalDataList[],
   isLoad:boolean,
   error?:Error
 }

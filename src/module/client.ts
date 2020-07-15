@@ -14,6 +14,16 @@ export async function fetchDataGlobalApi(){
   }
 }
 
+export async function fetchListCountryApi(){
+  try{
+    const { data } = await axios.get("https://api.kawalcorona.com/");
+    return { data };
+  }catch(err){
+    return { err };
+  }
+}
+
+
 export async function fetchDataGlobalDailyApi(){
   try {
     const { data } = await axios.get("https://covid19.mathdro.id/api/daily/");
