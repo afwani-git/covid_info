@@ -26,7 +26,7 @@ class Info extends React.Component<Props>{
 			if(!instanceOfA(dataSummary)){
 				return dataSummary.map((_data: IglobalData,index) => {
 					return(
-						<Col sm={12} md={6} lg={6} xl={3}>
+						<Col key={index} sm={12} md={6} lg={6} xl={3}>
 							<InfoCard key={index} {..._data} bgColor={bgColor[index]} photo={photo[index]} />
 						</Col>
 					)
