@@ -4,6 +4,7 @@ import Header from "./component/Header/Header.component";
 import Info from "./component/Info/Info.component";
 import Title from "./component/Title/Title.component";
 import Stat from "./component/Stat/Stat.component";
+import LocalList from "./component/LocalList/LocalList.component";
 import Container from "react-bootstrap/Container";
 import { fetchStart,fetchStartD }  from "./redux/globalData/globalData.actions";
 import { Dispatch } from "redux";
@@ -17,11 +18,8 @@ interface Props{
 class App extends React.Component<Props>{
 
   componentDidMount(){
-
     this.props.fetchData!();
     this.props.fetchDataDaily!();
-
-
   }
 
   render(){
@@ -37,7 +35,10 @@ class App extends React.Component<Props>{
             <Info/>
           </section>
           <section id="statistic">
-            <Stat  />
+            <Stat/>
+          </section>
+          <section id="dataLocal">
+            <LocalList/>
           </section>
         </Container>
       </React.Fragment>
