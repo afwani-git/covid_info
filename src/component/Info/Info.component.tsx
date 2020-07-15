@@ -34,7 +34,7 @@ class Info extends React.Component<Props>{
 			}
 		}
 	}
-
+	
 	render(){
 		const { lokalData } = this.props;
 		return(
