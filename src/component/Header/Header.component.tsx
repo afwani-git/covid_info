@@ -13,13 +13,13 @@ const Header: React.FC = () => (
 			</Navbar.Brand>
 			<Nav className="justify-content-between align-content-center header__nav ">
 				<Nav.Item className="nav-item">
-					<Nav.Link href="#">Dasboard</Nav.Link>
+					<Nav.Link href="/">Dasboard</Nav.Link>
 				</Nav.Item>
 				<Nav.Item className="nav-item nav-item--bd">
-					<Nav.Link href="#">Contact</Nav.Link>
+					<Nav.Link href="mailto:afwani321@gmail.com">Contact</Nav.Link>
 				</Nav.Item>
 				<Nav.Item className="nav-item nav-item--bd">
-					<Nav.Link href="#">About Me</Nav.Link>
+					<Nav.Link href="https://github.com/afwani-git">About Me</Nav.Link>
 				</Nav.Item>
 			</Nav>
 		</Container>

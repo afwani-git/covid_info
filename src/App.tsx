@@ -6,6 +6,7 @@ import Title from "./component/Title/Title.component";
 import Stat from "./component/Stat/Stat.component";
 import LocalList from "./component/LocalList/LocalList.component";
 import GlobalList from "./component/GlobalList/GlobalList.component";
+import Footer from "./component/Footer/Footer.component";
 import Container from "react-bootstrap/Container";
 import { fetchStart, fetchStartD, countryListFetchStart }  from "./redux/globalData/globalData.actions";
 import { localDataFetchStart, localDataByProvFetchStart } from "./redux/lokalData/lokalData.actions";
@@ -52,6 +53,7 @@ class App extends React.Component<Props>{
             <GlobalList/>
           </section>
         </Container>
+        <Footer/>
       </React.Fragment>
     );
   }
